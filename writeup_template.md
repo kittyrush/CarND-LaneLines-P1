@@ -21,27 +21,20 @@ The goals / steps of this project are the following:
 
 ### Reflection
 
-### 1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
+1, filter out yellow and white color by cv.inrange(), convert to hsv image
 
-My pipeline consisted of 5 steps. First, I converted the images to grayscale, then I .... 
+2, set the vertices  as np.array([[(0, imshape[0]), (imshape[1]*2/5, imshape[0]*5/8),
+    (imshape[1]*3/5, imshape[0]*5/8), (imshape[1],imshape[0])]], dtype=np.int32) instead of fixing
+vertices
 
-In order to draw a single line on the left and right lanes, I modified the draw_lines() function by ...
+3, do the course test code do
 
-If you'd like to include images to show how the pipeline works, here is how to include an image: 
+4, average left, right line's m and b. And recalculate the two line, draw with thickness=8
 
-![alt text][image1]
+Potential Shortage and possible improvements:
 
+The vertices range might not robust enough, it's very depended on camera position and angle in car.
 
-### 2. Identify potential shortcomings with your current pipeline
+And it might have a smooth function for video processing.
 
-
-One potential shortcoming would be what would happen when ... 
-
-Another shortcoming could be ...
-
-
-### 3. Suggest possible improvements to your pipeline
-
-A possible improvement would be to ...
-
-Another potential improvement could be to ...
+for the merged lane or not regualr two parallel lanes, cannot work well.
